@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.devMode" value="false"/>
+
+<package name="default" namespace="/" extends="struts-default">
+<action name="dbInitialize" class="com.struts.action.DBAction">
+	<result name="success">login.jsp</result>
+</action>
+
+<action name="login" class="com.struts.action.LoginAction" method = "execute">
+	<result name="success" type="redirectAction">/booksAction</result>
+	<result name="input">login.jsp</result>
+</action>
+
+<action name="booksAction" class="com.struts.action.BooksAction" 
+         method="execute">
+         <result name="success">Books.jsp</result>
+ </action>
+      
+ <action name="addAction" class="com.struts.action.AddAction" 
+         method="execute">
+         <result name="success" type="redirectAction">/booksAction</result>
+ </action>
+ 
+  <action name="deleteAction" class="com.struts.action.DeleteAction" 
+         method="execute">
+         <result name="success" type="redirectAction">/booksAction</result>
+ </action>
+ 
+   <action name="updateAction" class="com.struts.action.UpdateAction" 
+         method="execute">
+         <result name="success" type="redirectAction">/booksAction</result>
+ </action>
+ 
+  <action name="updateDataAction" class="com.struts.action.UpdateDataAction" 
+         method="execute">
+         <result name="success">updateProduct.jsp</result>
+ </action>
+		
+</package>
+</struts>
